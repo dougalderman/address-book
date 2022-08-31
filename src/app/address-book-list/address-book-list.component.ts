@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AddressBookApiService } from '../address-book-api.service';
+import { UserModel } from '../user-model';
+
 @Component({
   selector: 'app-address-book-list',
   templateUrl: './address-book-list.component.html',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddressBookListComponent implements OnInit {
 
-  constructor() { }
+  users: UserModel[] = [];
+
+  constructor(
+    private api: AddressBookApiService
+  ) { }
 
   ngOnInit(): void {
-  }
-
+    this.api.getUsers(10)
+      .subscribe((users: UserModel[]) => {
+        this.users = users;
+      });
+  }    
 }
