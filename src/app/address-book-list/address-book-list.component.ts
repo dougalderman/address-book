@@ -17,7 +17,7 @@ export class AddressBookListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.api.getUsers(10)
+    this.api.getUsersAPI()
       .subscribe((users: UserModel[]) => {
         this.users = users;
       });

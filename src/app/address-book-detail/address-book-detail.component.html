@@ -1,1 +1,13 @@
-<p>address-book-detail works!</p>
+<div *ngIf = "user">
+  <span>{{user.name.first}} &nbsp; {{user.name.last}}</span>
+  <p>Gender: {{user.gender}}</p>
+  <p>Phone: {{user.phone}}</p>
+  <p>Cell: {{user.phone}}</p>
+  <p>Street: {{user.location.street.number}} &nbsp; {{user.location.street.name}}</p>
+  <p>City: {{user.location.city}}</p>
+  <p>State: {{user.location.state}}</p>
+  <p>Postcode: {{user.location.postcode}}</p>
+  <p>Country: {{user.location.country}}</p>
+  <p>Email: {{user.email}}</p>
+</div>
+

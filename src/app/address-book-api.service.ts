@@ -4,32 +4,46 @@ import { catchError, Observable, map, forkJoin, of } from 'rxjs';
 
 import { UserModel } from './user-model';
 
+const USER_NUMBER: number = 10;
+
 @Injectable({
   providedIn: 'root'
 })
 export class AddressBookApiService {
 
+  declare usersObservable: Observable<UserModel[]>;
+
   constructor(
     private http: HttpClient
   ) { }
 
-  getUsers(userNumber: number): Observable<UserModel[]> {
+  getUsersAPI(): Observable<UserModel[]> {
 
-    let users: any = [];
+    let httpObservable: Observable<any>[] = [];
 
-    for (let i = 0; i < userNumber; i++) {
-      users.push(this.http.get<UserModel>('https://randomuser.me/api/'));
+    for (let i = 0; i < USER_NUMBER; i++) {
+      httpObservable.push(this.http.get<UserModel>('https://randomuser.me/api/'));
     }
 
-    return forkJoin(users).pipe(
+    this.usersObservable = forkJoin(httpObservable).pipe(
       map((userArray: any) => 
         userArray.reduce((previousValue: any, currentValue: any) => previousValue.concat(currentValue.results), []))
-    );  
-  }    
+    );
 
-       
+    return this.usersObservable;
+  }
 
-   /**
+  getUsers(): Observable<UserModel[]> {
+    console.log('this.usersObservable: ', this.usersObservable);
+    if (this.usersObservable) {
+      return this.usersObservable;
+    }
+    else {
+      return this.getUsersAPI();
+    }
+  }  
+  
+ /**
  * Handle Http operation that failed.
  * Let the app continue.
  * @param operation - name of the operation that failed
