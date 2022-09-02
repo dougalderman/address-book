@@ -31,6 +31,7 @@ export class AddressBookDetailComponent implements OnInit {
         console.log('users: ', users);
         if (users && users.length) {
           this.user = users[index];
+          this.api.setUsers(users);
         }  
       });
   }

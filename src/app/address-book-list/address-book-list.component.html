@@ -1,5 +1,10 @@
-<h1>Address Book</h1>
+<div class="profile-container">
+  <h1>Address Book</h1>
 
-<div class="user-name" *ngFor = "let user of users; let i = index">
-  <a routerLink="/detail/{{i}}">{{user.name.first}} &nbsp; {{user.name.last}}</a>
-</div>
+  <div class="user-container" [ngClass] = "{'odd-color': i % 2 !== 0, 'even-color': i % 2 === 0}" *ngFor = "let user of users; let i = index">
+    <div class="user" routerLink="/detail/{{i}}">
+      <p class="user-name" >{{user.name.first}} &nbsp; {{user.name.last}}</p>
+      <img class="user-image" [src] = "user.picture.thumbnail" alt="picture" width="48" height="48">
+    </div>
+  </div>
+</div>  

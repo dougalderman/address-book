@@ -11,7 +11,7 @@ const USER_NUMBER: number = 10;
 })
 export class AddressBookApiService {
 
-  declare usersObservable: Observable<UserModel[]>;
+  users: UserModel[] = [];
 
   constructor(
     private http: HttpClient
@@ -25,23 +25,25 @@ export class AddressBookApiService {
       httpObservable.push(this.http.get<UserModel>('https://randomuser.me/api/'));
     }
 
-    this.usersObservable = forkJoin(httpObservable).pipe(
+    return forkJoin(httpObservable).pipe(
       map((userArray: any) => 
-        userArray.reduce((previousValue: any, currentValue: any) => previousValue.concat(currentValue.results), []))
+        userArray.reduce((previousValue: any, currentValue: any) => previousValue.concat(currentValue.results), [])),
+      catchError(this.handleError<UserModel[]>([]))
     );
-
-    return this.usersObservable;
   }
 
   getUsers(): Observable<UserModel[]> {
-    console.log('this.usersObservable: ', this.usersObservable);
-    if (this.usersObservable) {
-      return this.usersObservable;
+    if (this.users && this.users.length) {
+      return of(this.users);
     }
     else {
       return this.getUsersAPI();
     }
-  }  
+  }
+  
+  setUsers(users: UserModel[]) {
+    this.users = users;
+  }
   
  /**
  * Handle Http operation that failed.
@@ -49,7 +51,7 @@ export class AddressBookApiService {
  * @param operation - name of the operation that failed
  * @param result - optional value to return as the observable result
  */
-    private handleError<T> (operation = 'operation', result?: T) {
+    private handleError<T> (result?: T) {
       return (error: any): Observable<T> => {
   
         // TODO: send the error to remote logging infrastructure
@@ -59,6 +61,4 @@ export class AddressBookApiService {
         return of(result as T);
       };
     }
-
-
 }
