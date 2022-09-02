@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from "ngx-spinner";
 
 import { AddressBookApiService } from '../address-book-api.service';
 import { UserModel } from '../user-model';
@@ -13,14 +14,17 @@ export class AddressBookListComponent implements OnInit {
   users: UserModel[] = [];
 
   constructor(
-    private api: AddressBookApiService
+    private api: AddressBookApiService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.api.getUsers()
       .subscribe((users: UserModel[]) => {
         this.users = users;
         this.api.setUsers(users);
+        this.spinner.hide();
       });
   }    
 }
