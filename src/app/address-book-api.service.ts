@@ -18,18 +18,11 @@ export class AddressBookApiService {
   ) { }
 
   getContactsAPI(): Observable<ContactModel[]> {
-
-    let httpObservable: Observable<any>[] = [];
-
-    for (let i = 0; i < CONTACT_NUMBER; i++) {
-      httpObservable.push(this.http.get<ContactModel>('https://randomuser.me/api/'));
-    }
-
-    return forkJoin(httpObservable).pipe(
-      map((contactArray: any) => 
-        contactArray.reduce((previousValue: any, currentValue: any) => previousValue.concat(currentValue.results), [])),
-      catchError(this.handleError<ContactModel[]>([]))
-    );
+    return this.http.get<ContactModel[]>('https://randomuser.me/api/?seed=nuvalence&results=' + CONTACT_NUMBER)
+      .pipe(
+        map((contacts: any) => contacts.results),
+        catchError(this.handleError<ContactModel[]>([]))  
+      )
   }
 
   getContacts(): Observable<ContactModel[]> {
