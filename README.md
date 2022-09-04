@@ -10,13 +10,15 @@ This project calls the API https://randomuser.me/ to get a list of 10 people to 
 
 ## Engineering Details
 
-The API call is done in a service named AddressBookApiService. Because the API endpoint randomly returns a single user, 10 HTTP GET commands are combined into an array, and RXJS forkJoin() is used to combine them. Results from GET commands are mapped and reduced into a single array of ContactModel objects (ContactModel is an interface).
+The API call is done in a service named AddressBookApiService. Result from GET command is mapped into an array of ContactModel objects (ContactModel is an interface).
 
 The main page displays a list of contact names and thumbnails. Clicking on a contact sends the user to the detail page via a routerLink command. AppRoutingModule specifies the two routes. The detail page shows additional information returned from the API call.
 
 ## Future Steps
 
-The project could be improved by allowing the user to modify contact information in the detail page. This would require adding the users returned from the API call to a database table, and modifying the table. Endpoints would need to be created to access the database. A reactive form could be added to the detail page to allow for the user to change contact information. Adding new users to the database could also be allowed via the detail page. 
+One minor improvement would be to allow paging by using the page parameter in the URL.
+
+The project could also be improved by a major enhancement allowing the user to modify contact information in the detail page. This would require adding the users returned from the API call to a database table, and modifying the table. Endpoints would need to be created to access the database. A reactive form could be added to the detail page to allow for the user to change contact information. Adding new users to the database could also be allowed via the detail page. 
 
 ## Development server
 
