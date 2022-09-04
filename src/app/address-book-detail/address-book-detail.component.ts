@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 import { AddressBookApiService } from '../address-book-api.service';
-import { UserModel } from '../user-model';
+import { ContactModel } from '../contact-model';
 
 @Component({
   selector: 'app-address-book-detail',
@@ -11,27 +12,28 @@ import { UserModel } from '../user-model';
 })
 export class AddressBookDetailComponent implements OnInit {
 
-  declare user: UserModel;
+  declare contact: ContactModel;
 
   constructor(
     private api: AddressBookApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
-    this.getUserDetail();
+    this.getContactDetail();
   }
 
-  getUserDetail() {
+  getContactDetail() {
     const index = Number(this.route.snapshot.paramMap.get('index'));
-    console.log('index: ', index);
+    this.spinner.show();
 
-    this.api.getUsers()
-      .subscribe((users) => {
-        console.log('users: ', users);
-        if (users && users.length) {
-          this.user = users[index];
-          this.api.setUsers(users);
+    this.api.getContacts()
+      .subscribe((contacts) => {
+        if (contacts && contacts.length) {
+          this.contact = contacts[index];
+          this.api.setContacts(contacts);
+          this.spinner.hide();
         }  
       });
   }

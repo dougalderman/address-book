@@ -1,4 +1,4 @@
-export interface UserModel {
+export interface ContactModel {
   gender: string,
   name: nameObj,
   location: locationObj,

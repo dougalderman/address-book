@@ -2,53 +2,52 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, map, forkJoin, of } from 'rxjs';
 
-import { UserModel } from './user-model';
+import { ContactModel } from './contact-model';
 
-const USER_NUMBER: number = 10;
+const CONTACT_NUMBER: number = 10;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddressBookApiService {
 
-  users: UserModel[] = [];
+  contacts: ContactModel[] = [];
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getUsersAPI(): Observable<UserModel[]> {
+  getContactsAPI(): Observable<ContactModel[]> {
 
     let httpObservable: Observable<any>[] = [];
 
-    for (let i = 0; i < USER_NUMBER; i++) {
-      httpObservable.push(this.http.get<UserModel>('https://randomuser.me/api/'));
+    for (let i = 0; i < CONTACT_NUMBER; i++) {
+      httpObservable.push(this.http.get<ContactModel>('https://randomuser.me/api/'));
     }
 
     return forkJoin(httpObservable).pipe(
-      map((userArray: any) => 
-        userArray.reduce((previousValue: any, currentValue: any) => previousValue.concat(currentValue.results), [])),
-      catchError(this.handleError<UserModel[]>([]))
+      map((contactArray: any) => 
+        contactArray.reduce((previousValue: any, currentValue: any) => previousValue.concat(currentValue.results), [])),
+      catchError(this.handleError<ContactModel[]>([]))
     );
   }
 
-  getUsers(): Observable<UserModel[]> {
-    if (this.users && this.users.length) {
-      return of(this.users);
+  getContacts(): Observable<ContactModel[]> {
+    if (this.contacts && this.contacts.length) {
+      return of(this.contacts);
     }
     else {
-      return this.getUsersAPI();
+      return this.getContactsAPI();
     }
   }
   
-  setUsers(users: UserModel[]) {
-    this.users = users;
+  setContacts(contacts: ContactModel[]) {
+    this.contacts = contacts;
   }
   
  /**
  * Handle Http operation that failed.
  * Let the app continue.
- * @param operation - name of the operation that failed
  * @param result - optional value to return as the observable result
  */
     private handleError<T> (result?: T) {

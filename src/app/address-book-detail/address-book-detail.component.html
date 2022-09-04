@@ -1,13 +1,17 @@
-<div *ngIf = "user">
-  <span>{{user.name.first}} &nbsp; {{user.name.last}}</span>
-  <p>Gender: {{user.gender}}</p>
-  <p>Phone: {{user.phone}}</p>
-  <p>Cell: {{user.phone}}</p>
-  <p>Street: {{user.location.street.number}} &nbsp; {{user.location.street.name}}</p>
-  <p>City: {{user.location.city}}</p>
-  <p>State: {{user.location.state}}</p>
-  <p>Postcode: {{user.location.postcode}}</p>
-  <p>Country: {{user.location.country}}</p>
-  <p>Email: {{user.email}}</p>
-</div>
+<div class="detail-container">
+  <ngx-spinner type="ball-spin-clockwise"></ngx-spinner>
+  <div class="contact" *ngIf = "contact">
+    <div class="left-column">
+    <span>{{contact.name.first}} &nbsp; {{contact.name.last}}</span>
+    <p>Gender: {{contact.gender}}</p>
+    <p>Phone: {{contact.phone}}</p>
+    <p>Cell: {{contact.phone}}</p>
+    <p>Street: {{contact.location.street.number}} &nbsp; {{contact.location.street.name}}</p>
+    <p>City: {{contact.location.city}}</p>
+    <p>State: {{contact.location.state}}</p>
+    <p>Postcode: {{contact.location.postcode}}</p>
+    <p>Country: {{contact.location.country}}</p>
+    <p>Email: {{contact.email}}</p>
+  </div>
+</div>  
 
