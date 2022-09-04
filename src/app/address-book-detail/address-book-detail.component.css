@@ -1,0 +1,55 @@
+.detail-container {
+  font-family: 'Times New Roman', Times, serif;
+  background: lightgrey;
+  display: flex;
+  height: 100vh;
+  align-items: start;
+}
+
+.contact, .contact-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.contact {
+  margin: 2rem 0;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contact-detail {
+  width: 95%;
+}
+
+.image-container {
+  margin-bottom: 2rem;
+}
+
+.left-column, .right-column {
+  flex: 1;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+span.detail-type {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 800px) {
+  .contact-detail {
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  .left-column, .right-column {
+    width: 100%;
+  }
+  
+  .right-column {
+    margin-top: 2rem;
+  }
+}

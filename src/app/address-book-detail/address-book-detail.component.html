@@ -1,17 +1,25 @@
 <div class="detail-container">
   <ngx-spinner type="ball-spin-clockwise"></ngx-spinner>
-  <div class="contact" *ngIf = "contact">
-    <div class="left-column">
-    <span>{{contact.name.first}} &nbsp; {{contact.name.last}}</span>
-    <p>Gender: {{contact.gender}}</p>
-    <p>Phone: {{contact.phone}}</p>
-    <p>Cell: {{contact.phone}}</p>
-    <p>Street: {{contact.location.street.number}} &nbsp; {{contact.location.street.name}}</p>
-    <p>City: {{contact.location.city}}</p>
-    <p>State: {{contact.location.state}}</p>
-    <p>Postcode: {{contact.location.postcode}}</p>
-    <p>Country: {{contact.location.country}}</p>
-    <p>Email: {{contact.email}}</p>
+  <div class="contact" *ngIf="contact">
+    <div class="image-container">
+      <img class="contact-image" [src] = "contact.picture.large" alt="picture" width="128" height="128">
+    </div>
+    <div class="contact-detail">
+      <div class="left-column">
+        <p><span class="detail-type">Name:</span> {{contact.name.first}} &nbsp; {{contact.name.last}}</p>
+        <p><span class="detail-type">Gender:</span> {{contact.gender}}</p>
+        <p><span class="detail-type">Phone:</span> {{contact.phone}}</p>
+        <p><span class="detail-type">Cell:</span> {{contact.cell}}</p>
+        <p><span class="detail-type">Email:</span> {{contact.email}}</p>
+      </div>  
+      <div class="right-column">
+        <p><span class="detail-type">Street:</span> {{contact.location.street.number}} &nbsp; {{contact.location.street.name}}</p>
+        <p><span class="detail-type">City:</span> {{contact.location.city}}</p>
+        <p><span class="detail-type">State:</span> {{contact.location.state}}</p>
+        <p><span class="detail-type">Postcode:</span> {{contact.location.postcode}}</p>
+        <p><span class="detail-type">Country:</span> {{contact.location.country}}</p>
+      </div>
+    </div>  
   </div>
 </div>  
 
