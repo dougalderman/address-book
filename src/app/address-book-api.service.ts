@@ -18,7 +18,7 @@ export class AddressBookApiService {
   ) { }
 
   getContactsAPI(): Observable<ContactModel[]> {
-    return this.http.get<ContactModel[]>('https://randomuser.me/api/?seed=nuvalence&results=' + CONTACT_NUMBER)
+    return this.http.get<ContactModel[]>('https://randomuser.me/api/?seed=nuvalence&inc=gender,name,location,email,phone,cell,picture&results=' + CONTACT_NUMBER)
       .pipe(
         map((contacts: any) => contacts.results),
         catchError(this.handleError<ContactModel[]>([]))  

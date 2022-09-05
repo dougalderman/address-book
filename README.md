@@ -10,7 +10,7 @@ This project calls the API https://randomuser.me/ to get a list of CONTACT_NUMBE
 
 ## Engineering Details
 
-The API call is done in a service named AddressBookApiService. Result from GET command is mapped into an array of ContactModel objects (ContactModel is an interface).
+The API call is done in a service named AddressBookApiService. Result from GET command is mapped into an array of ContactModel objects (ContactModel is an interface). Query parameters are used to limit the fields returned, to set a seed, and to specify the number of records returned.
 
 The main page displays a list of contact names and thumbnails. Clicking on a contact sends the user to the detail page via a routerLink command. AppRoutingModule specifies the two routes. The detail page shows additional information returned from the API call.
 
