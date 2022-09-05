@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, map, forkJoin, of } from 'rxjs';
+import { catchError, Observable, map, of } from 'rxjs';
 
 import { ContactModel } from './contact-model';
 

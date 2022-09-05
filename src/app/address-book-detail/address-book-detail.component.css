@@ -3,7 +3,7 @@
   background: lightgrey;
   display: flex;
   height: 100vh;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .contact, .contact-detail {
