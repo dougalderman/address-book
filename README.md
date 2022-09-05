@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Brief Description
 
-This project calls the API https://randomuser.me/ to get a list of CONTACT_NUMBER people to populate an address book. The main screen lists the names and thumbnail photos. When the user clicks on a person, a detail page is shown with additional information returned from the API call, including photo, gender, phone number, email address, and postal address.
+This project calls the API https://randomuser.me/ to get a list of people to populate an address book. The main screen lists the names and thumbnail photos. When the user clicks on a person, a detail page is shown with additional information returned from the API call, including photo, gender, phone number, email address, and postal address.
 
 ## Engineering Details
 
