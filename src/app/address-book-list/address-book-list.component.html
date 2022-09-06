@@ -2,8 +2,8 @@
   <ngx-spinner type="ball-spin-clockwise"></ngx-spinner>
   <h1>Address Book</h1>
 
-  <div class="contact-container" [ngClass] = "{'odd-color': i % 2 !== 0, 'even-color': i % 2 === 0}" *ngFor = "let contact of contacts; let i = index">
-    <div class="contact" routerLink="/detail/{{i}}">
+  <div class="contact-container" >
+    <div class="contact" [ngClass] = "{'odd-color': i % 2 !== 0, 'even-color': i % 2 === 0}" *ngFor = "let contact of contacts; let i = index" routerLink="/detail/{{i}}">
       <p class="contact-name" >{{contact.name.first}} &nbsp; {{contact.name.last}}</p>
       <img class="contact-image" [src] = "contact.picture.thumbnail" alt="picture" width="48" height="48">
     </div>

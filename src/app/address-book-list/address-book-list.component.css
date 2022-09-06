@@ -14,13 +14,12 @@ h1 {
 } 
   
 .contact-container {
-  height: 7rem;
   width: 50%;
+  margin-bottom: 2rem;
  }
 
 .contact {
-  height: 100%;
-  width: 100%;
+  height: 7rem;
   display: flex;
   flex-direction: column;
   border: 1px solid blue;
@@ -50,7 +49,10 @@ h1 {
 
 @media only screen and (max-width: 600px) {
   .contact-container {
-    height: 9rem;
     width: 75%;
+   }
+
+   .contact {
+    height: 9rem;
    }
 }
