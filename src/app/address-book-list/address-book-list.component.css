@@ -20,9 +20,16 @@ h1 {
 
 .contact {
   height: 7rem;
+  border: 1px solid blue;
+}
+
+.contact-link {
+  color: inherit;
+  width: inherit;
+  height: inherit;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
   align-items: center;
   justify-content: center;
 }
