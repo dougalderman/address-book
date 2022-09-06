@@ -1,0 +1,72 @@
+[
+  {  
+    "cell": "063-8165-153",
+    "email": "stanimir.andelkovic@example.com",
+    "gender": "male",
+    "login": {
+      "uuid": "",
+      "username": "",
+      "password": "",
+      "salt": "",
+      "sha1": "",
+      "md5": "",
+      "sha256": ""
+    },
+    "dob": {
+      "date": "",
+      "age": ""
+    },
+    "registered": {
+      "date": "052519",
+      "age": 0
+    },
+    "id": {
+      "name": "",
+      "value": ""
+    },
+    "nat": "",
+    "location": {"street": {"number": 5323, "name": "Milene Čupić"}, "city": "Arilje", "state": "South Bačka", "country": "Serbia",
+    "coordinates": {"latitude": "62.8111", "longitude": "-131.7543"}, "country": "Serbia", "postcode": "26051", "state": "South Bačka",
+    "timezone": {"offset": "+9:30", "description": "Adelaide, Darwin"}},
+    "name": {"title": "Mr", "first": "Stanimir", "last": "Anđelković"},
+    "phone": "010-0866-457",
+    "picture": {"large": "https://randomuser.me/api/portraits/men/43.jpg",
+    "medium": "https://randomuser.me/api/portraits/med/men/43.jpg",
+    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/43.jpg"}
+  },
+  {
+    "cell": "40239023",
+    "email": "eira.lossius@example.com",
+    "gender": "female",
+    "login": {
+      "uuid": "",
+      "username": "",
+      "password": "",
+      "salt": "",
+      "sha1": "",
+      "md5": "",
+      "sha256": ""
+    },
+    "dob": {
+      "date": "",
+      "age": ""
+    },
+    "registered": {
+      "date": "052519",
+      "age": 0
+    },
+    "id": {
+      "name": "",
+      "value": ""
+    },
+    "nat": "",
+    "location": {"street": {"number": 7730, "name": "Nygata"}, "city": "Drammen", "state": "Trøndelag", "country": "Norway",
+    "coordinates": {"latitude": "53.6385", "longitude": "-66.5881"}, "country": "Norway", "postcode": "5119", "state": "Trøndelag",
+    "timezone": {"offset": "+9:00", "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"}},
+    "name": {"title": "Miss", "first": "Eira", "last": "Lossius"},
+    "phone": "52702740",
+    "picture": {"large": "https://randomuser.me/api/portraits/women/17.jpg",
+    "medium": "https://randomuser.me/api/portraits/med/women/17.jpg",
+    "thumbnail": "https://randomuser.me/api/portraits/thumb/women/17.jpg"}
+  }
+]  

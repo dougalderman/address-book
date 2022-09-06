@@ -60,7 +60,7 @@ interface dobObj {
 }
 
 interface registeredObj {
-  date: Date,
+  date: string,
   age: number
 }
 
@@ -70,7 +70,7 @@ interface idObj {
 }
 
 interface pictureObj {
-  large: URL,
-  medium: URL,
-  thumbnail: URL
+  large: string,
+  medium: string,
+  thumbnail: string
 }

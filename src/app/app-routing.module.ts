@@ -1,7 +1,6 @@
 import { AddressBookListComponent } from './address-book-list/address-book-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 import { AddressBookDetailComponent } from './address-book-detail/address-book-detail.component';
 
