@@ -28,7 +28,7 @@ export class AddressBookDetailComponent implements OnInit {
     const index = Number(this.route.snapshot.paramMap.get('index'));
     this.spinner.show();
 
-    this.api.getContacts()
+    this.api.getContacts(1)
       .subscribe((contacts) => {
         if (contacts && contacts.length) {
           this.contact = contacts[index];

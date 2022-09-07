@@ -20,7 +20,7 @@ export class AddressBookListComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.api.getContacts()
+    this.api.getContacts(1)
       .subscribe((contacts: ContactModel[]) => {
         this.contacts = contacts;
         this.api.setContacts(contacts);

@@ -17,20 +17,20 @@ export class AddressBookApiService {
     private http: HttpClient
   ) { }
 
-  getContactsAPI(): Observable<ContactModel[]> {
-    return this.http.get<ContactModel[]>('https://randomuser.me/api/?seed=nuvalence&inc=gender,name,location,email,phone,cell,picture&results=' + CONTACT_NUMBER)
+  getContactsAPI(pageNumber: number): Observable<ContactModel[]> {
+    return this.http.get<ContactModel[]>('https://randomuser.me/api/?seed=nuvalence&inc=gender,name,location,email,phone,cell,picture&results=' + CONTACT_NUMBER + '&page=' + pageNumber)
       .pipe(
         map((contacts: any) => contacts.results),
         catchError(this.handleError<ContactModel[]>([]))  
       )
   }
 
-  getContacts(): Observable<ContactModel[]> {
+  getContacts(pageNumber: number): Observable<ContactModel[]> {
     if (this.contacts && this.contacts.length) {
       return of(this.contacts);
     }
     else {
-      return this.getContactsAPI();
+      return this.getContactsAPI(pageNumber);
     }
   }
   
